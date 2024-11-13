@@ -4,4 +4,5 @@ export interface Article {
   price: string;
   contact: string;
   stock: string;
+  isDeletted: boolean;
 }

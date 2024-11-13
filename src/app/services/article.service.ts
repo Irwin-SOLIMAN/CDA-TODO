@@ -18,13 +18,18 @@ export class ArticleService {
     localStorage.setItem('articles', JSON.stringify(this.articles));
   }
 
-  // Suppression d'un article
-  deleteArticle(articleID: string): void {
+  // Suppression ou restore d'un article
+  handleArticleStatus(articleID: string): void {
     // Récupération de l'index de l'article à supprimer
 
     const index = this.articles.findIndex((x) => x.id === articleID);
     // Suppression de l'article du tableau
-    this.articles.splice(index, 1);
+
+    this.articles[index] = {
+      ...this.articles[index],
+      isDeletted: !this.articles[index].isDeletted,
+    };
+
     localStorage.setItem('articles', JSON.stringify(this.articles));
   }
 
@@ -38,7 +43,14 @@ export class ArticleService {
 
     if (stringData === null) {
       return [
-        { id: '1', name: 'Poire', price: '5', contact: 'Irwin', stock: '5' },
+        {
+          id: '1',
+          name: 'Poire',
+          price: '5',
+          contact: 'Irwin',
+          stock: '5',
+          isDeletted: false,
+        },
       ];
     } else {
       // Conversion des données de type 'string' en objet Json

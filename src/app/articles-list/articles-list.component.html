@@ -30,6 +30,7 @@
     </tr>
 
     <tr *ngFor="let article of articles">
+      @if(!article.isDeletted) {
       <td>{{ article.id }}</td>
       <td>{{ article.name }}</td>
       <td>{{ article.price }}</td>
@@ -39,11 +40,12 @@
         <button
           type="submit"
           class="btn btn-danger"
-          (click)="deleteArticle(article)"
+          (click)="handleArticleStatus(article)"
         >
           <i class="fas fa-times"></i>
         </button>
       </td>
+      }
     </tr>
   </tbody>
 </table>

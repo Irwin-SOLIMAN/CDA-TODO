@@ -14,17 +14,12 @@ export class ArticlesListDeletedComponent {
   articleService = inject(ArticleService);
 
   // Liste des articles non disponnible
-  articlesDeleted!: Article[];
-
-  ngOnInit() {
-    this.articleService.getFromLocalStorage();
-    // TODO récupération des articles non disponible à partir d'un service
-  }
+  articles: Article[] = this.articleService.articles;
 
   /**
    * Restaure un article supprimé
    */
-  restore() {
-    // TODO restauration de l'article à partir d'un service
+  handleArticleStatus(article: Article): void {
+    this.articleService.handleArticleStatus(article.id);
   }
 }

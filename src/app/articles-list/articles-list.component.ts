@@ -23,6 +23,7 @@ export class ArticlesListComponent {
     price: '',
     contact: '',
     stock: '',
+    isDeletted: false,
   };
 
   resetFormField() {
@@ -33,6 +34,7 @@ export class ArticlesListComponent {
       price: '',
       contact: '',
       stock: '',
+      isDeletted: false,
     };
   }
 
@@ -41,7 +43,7 @@ export class ArticlesListComponent {
     this.resetFormField();
   }
 
-  deleteArticle(article: Article): void {
-    this.articleService.deleteArticle(article.id);
+  handleArticleStatus(article: Article): void {
+    this.articleService.handleArticleStatus(article.id);
   }
 }
