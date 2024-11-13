@@ -15,7 +15,9 @@
       <td><input [(ngModel)]="article.name" name="name" /></td>
       <td><input [(ngModel)]="article.price" name="price" /></td>
       <td><input [(ngModel)]="article.stock" name="stock" /></td>
-      <td><input [(ngModel)]="article.contact" name="contact" /></td>
+      <td>
+        <input [(ngModel)]="article.contact" name="contact" />
+      </td>
       <td>
         <button
           type="submit"
@@ -26,6 +28,7 @@
         </button>
       </td>
     </tr>
+
     <tr *ngFor="let article of articles">
       <td>{{ article.id }}</td>
       <td>{{ article.name }}</td>
